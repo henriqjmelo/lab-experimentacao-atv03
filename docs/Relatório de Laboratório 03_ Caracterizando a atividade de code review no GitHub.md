@@ -8,7 +8,9 @@
 
 ## 1. Introdução e Hipóteses
 
-Este relatório apresenta uma análise quantitativa da atividade de code review em repositórios populares do GitHub. O objetivo é identificar variáveis que influenciam o merge de um Pull Request (PR) e o número de revisões realizadas.
+Este relatório apresenta uma análise quantitativa da atividade de code review em repositórios populares do GitHub. O objetivo é identificar variáveis que influenciam o merge de um Pull Request (PR) e o número de revisões realizadas. A pesquisa busca compreender como fatores relacionados ao desenvolvimento colaborativo, como quantidade de comentários, tempo de resposta, tamanho das alterações e participação dos revisores, impactam o processo de aprovação de contribuições em projetos de software de grande escala. 
+
+Além disso, o estudo pretende analisar padrões de comportamento em equipes distribuídas, avaliando de que forma a dinâmica de revisão pode contribuir para a qualidade do código, manutenção do projeto e eficiência no fluxo de desenvolvimento.
 
 ### Hipóteses Iniciais
 1. **Tamanho do PR:** PRs menores têm maior probabilidade de serem aceitos (merged) e requerem menos revisões.
@@ -45,21 +47,21 @@ Os dados foram coletados utilizando a API do GitHub (REST v3). Foram selecionado
 
 ### A. Feedback Final das Revisões (Status do PR)
 
-| Questão de Pesquisa | Métrica | Mediana Merged | Mediana Closed | p-value (MWU) |
+| Questão de Pesquisa | Métrica | Mediana Merged | Mediana Closed | p-value (MWU) | Interpretação
 |---------------------|---------|----------------|----------------|---------------|
-| **RQ 01: Tamanho** | Linhas | 105.00 | 138.50 | 0.0123 |
-| **RQ 02: Tempo** | Horas | 23.28 | 34.61 | 0.0003 |
-| **RQ 03: Descrição**| Caracteres| 301.50 | 285.00 | 0.6438 |
-| **RQ 04: Interações**| Total | 61.00 | 63.00 | 0.9223 |
+| **RQ 01: Tamanho** | Linhas | 105.00 | 138.50 | 0.0123 |PRs menores apresentaram maior taxa de aprovação, indicando que mudanças mais compactas tendem a facilitar o processo de revisão.
+| **RQ 02: Tempo** | Horas | 23.28 | 34.61 | 0.0003 | PRs aceitos foram processados mais rapidamente, sugerindo que revisões mais ágeis estão associadas a contribuições mais eficientes.
+| **RQ 03: Descrição**| Caracteres| 301.50 | 285.00 | 0.6438 | Não foi encontrada diferença estatisticamente significativa entre PRs aceitos e rejeitados em relação ao tamanho da descrição.
+| **RQ 04: Interações**| Total | 61.00 | 63.00 | 0.9223 | O volume de interações não apresentou impacto relevante no resultado final do PR dentro da amostra analisada.
 
 ### B. Número de Revisões
 
-| Questão de Pesquisa | Variável | Correlação (Spearman) | p-value |
+| Questão de Pesquisa | Variável | Correlação (Spearman) | p-value | Interpretação
 |---------------------|----------|-----------------------|---------|
-| **RQ 05: Tamanho** | Linhas Totais | 0.4466 | < 0.0001 |
-| **RQ 06: Tempo** | Duração (h) | 0.2764 | < 0.0001 |
-| **RQ 07: Descrição**| Tamanho Descrição| -0.0826 | 0.0649 |
-| **RQ 08: Interações**| Interações Totais| 0.9983 | < 0.0001 |
+| **RQ 05: Tamanho** | Linhas Totais | 0.4466 | < 0.0001 | Foi identificada uma correlação positiva moderada entre o tamanho do PR e o número de revisões, indicando que alterações maiores tendem a exigir mais ciclos de análise.
+| **RQ 06: Tempo** | Duração (h) | 0.2764 | < 0.0001 | Observou-se uma correlação positiva fraca entre o tempo de processamento e o número de revisões, sugerindo que PRs com revisões mais extensas permanecem abertos por mais tempo.
+| **RQ 07: Descrição**| Tamanho Descrição| -0.0826 | 0.0649 | A correlação encontrada foi muito fraca e estatisticamente não significativa, indicando que o tamanho da descrição praticamente não influencia a quantidade de revisões realizadas.
+| **RQ 08: Interações**| Interações Totais| 0.9983 | < 0.0001 | Foi observada uma correlação extremamente alta entre interações e número de revisões, demonstrando forte dependência entre comentários, participantes e atividades de revisão.
 
 ---
 
@@ -76,7 +78,11 @@ Os dados foram coletados utilizando a API do GitHub (REST v3). Foram selecionado
 
 ## 5. Conclusão
 
-A atividade de code review no GitHub é fortemente influenciada pela complexidade da mudança (tamanho). Manter PRs pequenos e concisos não apenas aumenta a probabilidade de aceitação, mas também reduz o tempo de ciclo e o número de revisões necessárias. A descrição, embora importante para o contexto humano, não apresentou impacto estatístico direto no desfecho binário (merge/close) nesta análise.
+A atividade de code review no GitHub mostrou-se fortemente influenciada pela complexidade das alterações realizadas, especialmente pelo tamanho do Pull Request. Os resultados indicam que PRs menores e mais concisos possuem maior probabilidade de aprovação, além de apresentarem menor tempo de processamento e menos ciclos de revisão. Isso evidencia que mudanças reduzidas facilitam a análise por parte dos revisores, tornando o processo mais eficiente e colaborativo.
+
+Além disso, verificou-se que PRs maiores tendem a gerar mais interações, comentários e revisões, aumentando o esforço necessário para validação e integração do código. Dessa forma, a fragmentação de alterações em contribuições menores pode representar uma estratégia importante para otimizar o fluxo de desenvolvimento e melhorar a produtividade das equipes.
+
+Por outro lado, embora a descrição do PR seja relevante para fornecer contexto aos revisores e facilitar a comunicação entre colaboradores, a análise estatística realizada não identificou impacto direto dessa variável no resultado final de aprovação ou rejeição do PR. Isso sugere que fatores técnicos e estruturais relacionados à própria mudança possuem maior influência no processo de merge do que o tamanho textual da descrição apresentada.
 
 ---
-*Este relatório foi gerado como parte das atividades do Laboratório 03.*
+
