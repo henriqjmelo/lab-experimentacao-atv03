@@ -1,0 +1,1250 @@
+[
+  {
+    "rank": 1,
+    "name": "facebook/react",
+    "total_prs": 202,
+    "prs_analyzed": 202,
+    "merged_prs": 169,
+    "closed_prs": 33
+  },
+  {
+    "rank": 2,
+    "name": "microsoft/vscode",
+    "total_prs": 260,
+    "prs_analyzed": 260,
+    "merged_prs": 205,
+    "closed_prs": 55
+  },
+  {
+    "rank": 3,
+    "name": "kubernetes/kubernetes",
+    "total_prs": 313,
+    "prs_analyzed": 313,
+    "merged_prs": 214,
+    "closed_prs": 99
+  },
+  {
+    "rank": 4,
+    "name": "torvalds/linux",
+    "total_prs": 348,
+    "prs_analyzed": 348,
+    "merged_prs": 302,
+    "closed_prs": 46
+  },
+  {
+    "rank": 5,
+    "name": "tensorflow/tensorflow",
+    "total_prs": 273,
+    "prs_analyzed": 273,
+    "merged_prs": 174,
+    "closed_prs": 99
+  },
+  {
+    "rank": 6,
+    "name": "django/django",
+    "total_prs": 498,
+    "prs_analyzed": 498,
+    "merged_prs": 405,
+    "closed_prs": 93
+  },
+  {
+    "rank": 7,
+    "name": "vuejs/vue",
+    "total_prs": 369,
+    "prs_analyzed": 369,
+    "merged_prs": 272,
+    "closed_prs": 97
+  },
+  {
+    "rank": 8,
+    "name": "angular/angular",
+    "total_prs": 304,
+    "prs_analyzed": 304,
+    "merged_prs": 223,
+    "closed_prs": 81
+  },
+  {
+    "rank": 9,
+    "name": "nodejs/node",
+    "total_prs": 244,
+    "prs_analyzed": 244,
+    "merged_prs": 162,
+    "closed_prs": 82
+  },
+  {
+    "rank": 10,
+    "name": "rust-lang/rust",
+    "total_prs": 434,
+    "prs_analyzed": 434,
+    "merged_prs": 384,
+    "closed_prs": 50
+  },
+  {
+    "rank": 11,
+    "name": "golang/go",
+    "total_prs": 214,
+    "prs_analyzed": 214,
+    "merged_prs": 181,
+    "closed_prs": 33
+  },
+  {
+    "rank": 12,
+    "name": "python/cpython",
+    "total_prs": 392,
+    "prs_analyzed": 392,
+    "merged_prs": 301,
+    "closed_prs": 91
+  },
+  {
+    "rank": 13,
+    "name": "spring-projects/spring-framework",
+    "total_prs": 176,
+    "prs_analyzed": 176,
+    "merged_prs": 121,
+    "closed_prs": 55
+  },
+  {
+    "rank": 14,
+    "name": "laravel/laravel",
+    "total_prs": 321,
+    "prs_analyzed": 321,
+    "merged_prs": 241,
+    "closed_prs": 80
+  },
+  {
+    "rank": 15,
+    "name": "symfony/symfony",
+    "total_prs": 190,
+    "prs_analyzed": 190,
+    "merged_prs": 153,
+    "closed_prs": 37
+  },
+  {
+    "rank": 16,
+    "name": "nextjs/next.js",
+    "total_prs": 199,
+    "prs_analyzed": 199,
+    "merged_prs": 156,
+    "closed_prs": 43
+  },
+  {
+    "rank": 17,
+    "name": "vercel/next.js",
+    "total_prs": 498,
+    "prs_analyzed": 498,
+    "merged_prs": 388,
+    "closed_prs": 110
+  },
+  {
+    "rank": 18,
+    "name": "sveltejs/svelte",
+    "total_prs": 247,
+    "prs_analyzed": 247,
+    "merged_prs": 161,
+    "closed_prs": 86
+  },
+  {
+    "rank": 19,
+    "name": "remix-run/remix",
+    "total_prs": 424,
+    "prs_analyzed": 424,
+    "merged_prs": 336,
+    "closed_prs": 88
+  },
+  {
+    "rank": 20,
+    "name": "facebook/docusaurus",
+    "total_prs": 361,
+    "prs_analyzed": 361,
+    "merged_prs": 263,
+    "closed_prs": 98
+  },
+  {
+    "rank": 21,
+    "name": "storybookjs/storybook",
+    "total_prs": 252,
+    "prs_analyzed": 252,
+    "merged_prs": 164,
+    "closed_prs": 88
+  },
+  {
+    "rank": 22,
+    "name": "prettier/prettier",
+    "total_prs": 175,
+    "prs_analyzed": 175,
+    "merged_prs": 132,
+    "closed_prs": 43
+  },
+  {
+    "rank": 23,
+    "name": "eslint/eslint",
+    "total_prs": 189,
+    "prs_analyzed": 189,
+    "merged_prs": 134,
+    "closed_prs": 55
+  },
+  {
+    "rank": 24,
+    "name": "webpack/webpack",
+    "total_prs": 111,
+    "prs_analyzed": 111,
+    "merged_prs": 86,
+    "closed_prs": 25
+  },
+  {
+    "rank": 25,
+    "name": "facebook/jest",
+    "total_prs": 177,
+    "prs_analyzed": 177,
+    "merged_prs": 125,
+    "closed_prs": 52
+  },
+  {
+    "rank": 26,
+    "name": "graphql/graphql-js",
+    "total_prs": 388,
+    "prs_analyzed": 388,
+    "merged_prs": 269,
+    "closed_prs": 119
+  },
+  {
+    "rank": 27,
+    "name": "facebook/flipper",
+    "total_prs": 461,
+    "prs_analyzed": 461,
+    "merged_prs": 303,
+    "closed_prs": 158
+  },
+  {
+    "rank": 28,
+    "name": "aws-amplify/amplify-js",
+    "total_prs": 240,
+    "prs_analyzed": 240,
+    "merged_prs": 188,
+    "closed_prs": 52
+  },
+  {
+    "rank": 29,
+    "name": "typesafe/play-framework",
+    "total_prs": 109,
+    "prs_analyzed": 109,
+    "merged_prs": 82,
+    "closed_prs": 27
+  },
+  {
+    "rank": 30,
+    "name": "grpc/grpc",
+    "total_prs": 378,
+    "prs_analyzed": 378,
+    "merged_prs": 327,
+    "closed_prs": 51
+  },
+  {
+    "rank": 31,
+    "name": "openai/gpt-3",
+    "total_prs": 392,
+    "prs_analyzed": 392,
+    "merged_prs": 301,
+    "closed_prs": 91
+  },
+  {
+    "rank": 32,
+    "name": "langchain-ai/langchain",
+    "total_prs": 385,
+    "prs_analyzed": 385,
+    "merged_prs": 239,
+    "closed_prs": 146
+  },
+  {
+    "rank": 33,
+    "name": "jqlang/jq",
+    "total_prs": 276,
+    "prs_analyzed": 276,
+    "merged_prs": 186,
+    "closed_prs": 90
+  },
+  {
+    "rank": 34,
+    "name": "BurntSushi/ripgrep",
+    "total_prs": 336,
+    "prs_analyzed": 336,
+    "merged_prs": 299,
+    "closed_prs": 37
+  },
+  {
+    "rank": 35,
+    "name": "sharkdp/bat",
+    "total_prs": 125,
+    "prs_analyzed": 125,
+    "merged_prs": 91,
+    "closed_prs": 34
+  },
+  {
+    "rank": 36,
+    "name": "starship/starship",
+    "total_prs": 367,
+    "prs_analyzed": 367,
+    "merged_prs": 293,
+    "closed_prs": 74
+  },
+  {
+    "rank": 37,
+    "name": "cli/cli",
+    "total_prs": 226,
+    "prs_analyzed": 226,
+    "merged_prs": 189,
+    "closed_prs": 37
+  },
+  {
+    "rank": 38,
+    "name": "git/git",
+    "total_prs": 120,
+    "prs_analyzed": 120,
+    "merged_prs": 100,
+    "closed_prs": 20
+  },
+  {
+    "rank": 39,
+    "name": "curl/curl",
+    "total_prs": 374,
+    "prs_analyzed": 374,
+    "merged_prs": 255,
+    "closed_prs": 119
+  },
+  {
+    "rank": 40,
+    "name": "openssh/openssh-portable",
+    "total_prs": 374,
+    "prs_analyzed": 374,
+    "merged_prs": 296,
+    "closed_prs": 78
+  },
+  {
+    "rank": 41,
+    "name": "openssl/openssl",
+    "total_prs": 266,
+    "prs_analyzed": 266,
+    "merged_prs": 223,
+    "closed_prs": 43
+  },
+  {
+    "rank": 42,
+    "name": "apache/httpd",
+    "total_prs": 292,
+    "prs_analyzed": 292,
+    "merged_prs": 204,
+    "closed_prs": 88
+  },
+  {
+    "rank": 43,
+    "name": "nginx/nginx",
+    "total_prs": 187,
+    "prs_analyzed": 187,
+    "merged_prs": 136,
+    "closed_prs": 51
+  },
+  {
+    "rank": 44,
+    "name": "redis/redis",
+    "total_prs": 425,
+    "prs_analyzed": 425,
+    "merged_prs": 255,
+    "closed_prs": 170
+  },
+  {
+    "rank": 45,
+    "name": "mongodb/mongo",
+    "total_prs": 107,
+    "prs_analyzed": 107,
+    "merged_prs": 90,
+    "closed_prs": 17
+  },
+  {
+    "rank": 46,
+    "name": "elastic/elasticsearch",
+    "total_prs": 435,
+    "prs_analyzed": 435,
+    "merged_prs": 321,
+    "closed_prs": 114
+  },
+  {
+    "rank": 47,
+    "name": "prometheus/prometheus",
+    "total_prs": 455,
+    "prs_analyzed": 455,
+    "merged_prs": 393,
+    "closed_prs": 62
+  },
+  {
+    "rank": 48,
+    "name": "grafana/grafana",
+    "total_prs": 139,
+    "prs_analyzed": 139,
+    "merged_prs": 102,
+    "closed_prs": 37
+  },
+  {
+    "rank": 49,
+    "name": "hashicorp/consul",
+    "total_prs": 307,
+    "prs_analyzed": 307,
+    "merged_prs": 203,
+    "closed_prs": 104
+  },
+  {
+    "rank": 50,
+    "name": "hashicorp/vault",
+    "total_prs": 213,
+    "prs_analyzed": 213,
+    "merged_prs": 136,
+    "closed_prs": 77
+  },
+  {
+    "rank": 51,
+    "name": "containerd/containerd",
+    "total_prs": 203,
+    "prs_analyzed": 203,
+    "merged_prs": 144,
+    "closed_prs": 59
+  },
+  {
+    "rank": 52,
+    "name": "moby/moby",
+    "total_prs": 425,
+    "prs_analyzed": 425,
+    "merged_prs": 354,
+    "closed_prs": 71
+  },
+  {
+    "rank": 53,
+    "name": "ethereum/go-ethereum",
+    "total_prs": 375,
+    "prs_analyzed": 375,
+    "merged_prs": 233,
+    "closed_prs": 142
+  },
+  {
+    "rank": 54,
+    "name": "bitcoin/bitcoin",
+    "total_prs": 192,
+    "prs_analyzed": 192,
+    "merged_prs": 167,
+    "closed_prs": 25
+  },
+  {
+    "rank": 55,
+    "name": "solana-labs/solana",
+    "total_prs": 153,
+    "prs_analyzed": 153,
+    "merged_prs": 108,
+    "closed_prs": 45
+  },
+  {
+    "rank": 56,
+    "name": "near/near-sdk-rs",
+    "total_prs": 210,
+    "prs_analyzed": 210,
+    "merged_prs": 166,
+    "closed_prs": 44
+  },
+  {
+    "rank": 57,
+    "name": "MetaMask/metamask-extension",
+    "total_prs": 339,
+    "prs_analyzed": 339,
+    "merged_prs": 284,
+    "closed_prs": 55
+  },
+  {
+    "rank": 58,
+    "name": "metamask/web3-contract-wrappers",
+    "total_prs": 161,
+    "prs_analyzed": 161,
+    "merged_prs": 110,
+    "closed_prs": 51
+  },
+  {
+    "rank": 59,
+    "name": "uniswap/uniswap-v3-core",
+    "total_prs": 286,
+    "prs_analyzed": 286,
+    "merged_prs": 211,
+    "closed_prs": 75
+  },
+  {
+    "rank": 60,
+    "name": "aave/aave-protocol-v2",
+    "total_prs": 169,
+    "prs_analyzed": 169,
+    "merged_prs": 143,
+    "closed_prs": 26
+  },
+  {
+    "rank": 61,
+    "name": "curve-fi/curve-contracts",
+    "total_prs": 276,
+    "prs_analyzed": 276,
+    "merged_prs": 195,
+    "closed_prs": 81
+  },
+  {
+    "rank": 62,
+    "name": "MakerDAO/dss",
+    "total_prs": 166,
+    "prs_analyzed": 166,
+    "merged_prs": 123,
+    "closed_prs": 43
+  },
+  {
+    "rank": 63,
+    "name": "yearn/yearn-vaults",
+    "total_prs": 320,
+    "prs_analyzed": 320,
+    "merged_prs": 250,
+    "closed_prs": 70
+  },
+  {
+    "rank": 64,
+    "name": "compound-finance/compound-protocol",
+    "total_prs": 272,
+    "prs_analyzed": 272,
+    "merged_prs": 238,
+    "closed_prs": 34
+  },
+  {
+    "rank": 65,
+    "name": "balancer-labs/balancer-contracts",
+    "total_prs": 474,
+    "prs_analyzed": 474,
+    "merged_prs": 417,
+    "closed_prs": 57
+  },
+  {
+    "rank": 66,
+    "name": "snapshot-labs/snapshot",
+    "total_prs": 134,
+    "prs_analyzed": 134,
+    "merged_prs": 97,
+    "closed_prs": 37
+  },
+  {
+    "rank": 67,
+    "name": "crytic/echidna",
+    "total_prs": 462,
+    "prs_analyzed": 462,
+    "merged_prs": 323,
+    "closed_prs": 139
+  },
+  {
+    "rank": 68,
+    "name": "trail-of-bits/manticore",
+    "total_prs": 147,
+    "prs_analyzed": 147,
+    "merged_prs": 120,
+    "closed_prs": 27
+  },
+  {
+    "rank": 69,
+    "name": "google/protobuf",
+    "total_prs": 176,
+    "prs_analyzed": 176,
+    "merged_prs": 124,
+    "closed_prs": 52
+  },
+  {
+    "rank": 70,
+    "name": "grpc/grpc-go",
+    "total_prs": 129,
+    "prs_analyzed": 129,
+    "merged_prs": 94,
+    "closed_prs": 35
+  },
+  {
+    "rank": 71,
+    "name": "grpc/grpc-java",
+    "total_prs": 479,
+    "prs_analyzed": 479,
+    "merged_prs": 362,
+    "closed_prs": 117
+  },
+  {
+    "rank": 72,
+    "name": "grpc/grpc-python",
+    "total_prs": 425,
+    "prs_analyzed": 425,
+    "merged_prs": 320,
+    "closed_prs": 105
+  },
+  {
+    "rank": 73,
+    "name": "square/okhttp",
+    "total_prs": 467,
+    "prs_analyzed": 467,
+    "merged_prs": 354,
+    "closed_prs": 113
+  },
+  {
+    "rank": 74,
+    "name": "square/retrofit",
+    "total_prs": 300,
+    "prs_analyzed": 300,
+    "merged_prs": 200,
+    "closed_prs": 100
+  },
+  {
+    "rank": 75,
+    "name": "square/picasso",
+    "total_prs": 125,
+    "prs_analyzed": 125,
+    "merged_prs": 88,
+    "closed_prs": 37
+  },
+  {
+    "rank": 76,
+    "name": "square/dagger",
+    "total_prs": 440,
+    "prs_analyzed": 440,
+    "merged_prs": 298,
+    "closed_prs": 142
+  },
+  {
+    "rank": 77,
+    "name": "google/guava",
+    "total_prs": 231,
+    "prs_analyzed": 231,
+    "merged_prs": 185,
+    "closed_prs": 46
+  },
+  {
+    "rank": 78,
+    "name": "google/dagger",
+    "total_prs": 127,
+    "prs_analyzed": 127,
+    "merged_prs": 86,
+    "closed_prs": 41
+  },
+  {
+    "rank": 79,
+    "name": "google/auto",
+    "total_prs": 483,
+    "prs_analyzed": 483,
+    "merged_prs": 362,
+    "closed_prs": 121
+  },
+  {
+    "rank": 80,
+    "name": "google/error-prone",
+    "total_prs": 425,
+    "prs_analyzed": 425,
+    "merged_prs": 362,
+    "closed_prs": 63
+  },
+  {
+    "rank": 81,
+    "name": "google/j2cl",
+    "total_prs": 358,
+    "prs_analyzed": 358,
+    "merged_prs": 263,
+    "closed_prs": 95
+  },
+  {
+    "rank": 82,
+    "name": "google/closure-compiler",
+    "total_prs": 102,
+    "prs_analyzed": 102,
+    "merged_prs": 86,
+    "closed_prs": 16
+  },
+  {
+    "rank": 83,
+    "name": "google/closure-library",
+    "total_prs": 213,
+    "prs_analyzed": 213,
+    "merged_prs": 130,
+    "closed_prs": 83
+  },
+  {
+    "rank": 84,
+    "name": "google/web-components",
+    "total_prs": 473,
+    "prs_analyzed": 473,
+    "merged_prs": 294,
+    "closed_prs": 179
+  },
+  {
+    "rank": 85,
+    "name": "google/closure-templates",
+    "total_prs": 253,
+    "prs_analyzed": 253,
+    "merged_prs": 204,
+    "closed_prs": 49
+  },
+  {
+    "rank": 86,
+    "name": "google/model-viewer",
+    "total_prs": 198,
+    "prs_analyzed": 198,
+    "merged_prs": 177,
+    "closed_prs": 21
+  },
+  {
+    "rank": 87,
+    "name": "google/charts",
+    "total_prs": 465,
+    "prs_analyzed": 465,
+    "merged_prs": 373,
+    "closed_prs": 92
+  },
+  {
+    "rank": 88,
+    "name": "google/fonts",
+    "total_prs": 190,
+    "prs_analyzed": 190,
+    "merged_prs": 142,
+    "closed_prs": 48
+  },
+  {
+    "rank": 89,
+    "name": "google/material-design-icons",
+    "total_prs": 437,
+    "prs_analyzed": 437,
+    "merged_prs": 283,
+    "closed_prs": 154
+  },
+  {
+    "rank": 90,
+    "name": "google/material-components-web",
+    "total_prs": 400,
+    "prs_analyzed": 400,
+    "merged_prs": 251,
+    "closed_prs": 149
+  },
+  {
+    "rank": 91,
+    "name": "material-components/material-components-android",
+    "total_prs": 160,
+    "prs_analyzed": 160,
+    "merged_prs": 136,
+    "closed_prs": 24
+  },
+  {
+    "rank": 92,
+    "name": "material-components/material-components-ios",
+    "total_prs": 461,
+    "prs_analyzed": 461,
+    "merged_prs": 402,
+    "closed_prs": 59
+  },
+  {
+    "rank": 93,
+    "name": "facebook/react-native",
+    "total_prs": 444,
+    "prs_analyzed": 444,
+    "merged_prs": 283,
+    "closed_prs": 161
+  },
+  {
+    "rank": 94,
+    "name": "facebook/flow",
+    "total_prs": 147,
+    "prs_analyzed": 147,
+    "merged_prs": 113,
+    "closed_prs": 34
+  },
+  {
+    "rank": 95,
+    "name": "facebook/watchman",
+    "total_prs": 206,
+    "prs_analyzed": 206,
+    "merged_prs": 139,
+    "closed_prs": 67
+  },
+  {
+    "rank": 96,
+    "name": "facebook/rocksdb",
+    "total_prs": 204,
+    "prs_analyzed": 204,
+    "merged_prs": 159,
+    "closed_prs": 45
+  },
+  {
+    "rank": 97,
+    "name": "facebook/mcrouter",
+    "total_prs": 229,
+    "prs_analyzed": 229,
+    "merged_prs": 156,
+    "closed_prs": 73
+  },
+  {
+    "rank": 98,
+    "name": "facebook/wangle",
+    "total_prs": 360,
+    "prs_analyzed": 360,
+    "merged_prs": 227,
+    "closed_prs": 133
+  },
+  {
+    "rank": 99,
+    "name": "facebook/folly",
+    "total_prs": 435,
+    "prs_analyzed": 435,
+    "merged_prs": 304,
+    "closed_prs": 131
+  },
+  {
+    "rank": 100,
+    "name": "microsoft/TypeScript",
+    "total_prs": 335,
+    "prs_analyzed": 335,
+    "merged_prs": 225,
+    "closed_prs": 110
+  },
+  {
+    "rank": 101,
+    "name": "microsoft/PowerToys",
+    "total_prs": 435,
+    "prs_analyzed": 435,
+    "merged_prs": 354,
+    "closed_prs": 81
+  },
+  {
+    "rank": 102,
+    "name": "microsoft/terminal",
+    "total_prs": 481,
+    "prs_analyzed": 481,
+    "merged_prs": 298,
+    "closed_prs": 183
+  },
+  {
+    "rank": 103,
+    "name": "microsoft/winui",
+    "total_prs": 475,
+    "prs_analyzed": 475,
+    "merged_prs": 417,
+    "closed_prs": 58
+  },
+  {
+    "rank": 104,
+    "name": "microsoft/windows-rs",
+    "total_prs": 466,
+    "prs_analyzed": 466,
+    "merged_prs": 285,
+    "closed_prs": 181
+  },
+  {
+    "rank": 105,
+    "name": "microsoft/vcpkg",
+    "total_prs": 281,
+    "prs_analyzed": 281,
+    "merged_prs": 187,
+    "closed_prs": 94
+  },
+  {
+    "rank": 106,
+    "name": "microsoft/cpp-httplib",
+    "total_prs": 223,
+    "prs_analyzed": 223,
+    "merged_prs": 164,
+    "closed_prs": 59
+  },
+  {
+    "rank": 107,
+    "name": "microsoft/DirectX-Graphics-Samples",
+    "total_prs": 268,
+    "prs_analyzed": 268,
+    "merged_prs": 166,
+    "closed_prs": 102
+  },
+  {
+    "rank": 108,
+    "name": "microsoft/cpprestsdk",
+    "total_prs": 272,
+    "prs_analyzed": 272,
+    "merged_prs": 191,
+    "closed_prs": 81
+  },
+  {
+    "rank": 109,
+    "name": "microsoft/GSL",
+    "total_prs": 227,
+    "prs_analyzed": 227,
+    "merged_prs": 194,
+    "closed_prs": 33
+  },
+  {
+    "rank": 110,
+    "name": "microsoft/json",
+    "total_prs": 192,
+    "prs_analyzed": 192,
+    "merged_prs": 150,
+    "closed_prs": 42
+  },
+  {
+    "rank": 111,
+    "name": "microsoft/mimalloc",
+    "total_prs": 274,
+    "prs_analyzed": 274,
+    "merged_prs": 192,
+    "closed_prs": 82
+  },
+  {
+    "rank": 112,
+    "name": "microsoft/pylint-django",
+    "total_prs": 492,
+    "prs_analyzed": 492,
+    "merged_prs": 305,
+    "closed_prs": 187
+  },
+  {
+    "rank": 113,
+    "name": "apple/swift",
+    "total_prs": 284,
+    "prs_analyzed": 284,
+    "merged_prs": 187,
+    "closed_prs": 97
+  },
+  {
+    "rank": 114,
+    "name": "apple/swift-evolution",
+    "total_prs": 432,
+    "prs_analyzed": 432,
+    "merged_prs": 285,
+    "closed_prs": 147
+  },
+  {
+    "rank": 115,
+    "name": "apple/swift-compiler-plugin-examples",
+    "total_prs": 134,
+    "prs_analyzed": 134,
+    "merged_prs": 102,
+    "closed_prs": 32
+  },
+  {
+    "rank": 116,
+    "name": "llvm/llvm-project",
+    "total_prs": 475,
+    "prs_analyzed": 475,
+    "merged_prs": 384,
+    "closed_prs": 91
+  },
+  {
+    "rank": 117,
+    "name": "gcc-mirror/gcc",
+    "total_prs": 176,
+    "prs_analyzed": 176,
+    "merged_prs": 123,
+    "closed_prs": 53
+  },
+  {
+    "rank": 118,
+    "name": "jvm-profiling-tools/async-profiler",
+    "total_prs": 366,
+    "prs_analyzed": 366,
+    "merged_prs": 324,
+    "closed_prs": 42
+  },
+  {
+    "rank": 119,
+    "name": "openjdk/jdk",
+    "total_prs": 388,
+    "prs_analyzed": 388,
+    "merged_prs": 294,
+    "closed_prs": 94
+  },
+  {
+    "rank": 120,
+    "name": "openjdk/jdk11",
+    "total_prs": 464,
+    "prs_analyzed": 464,
+    "merged_prs": 292,
+    "closed_prs": 172
+  },
+  {
+    "rank": 121,
+    "name": "openjdk/jdk8u",
+    "total_prs": 130,
+    "prs_analyzed": 130,
+    "merged_prs": 81,
+    "closed_prs": 49
+  },
+  {
+    "rank": 122,
+    "name": "graalvm/graalvm-ce-builds",
+    "total_prs": 272,
+    "prs_analyzed": 272,
+    "merged_prs": 212,
+    "closed_prs": 60
+  },
+  {
+    "rank": 123,
+    "name": "scala/scala",
+    "total_prs": 149,
+    "prs_analyzed": 149,
+    "merged_prs": 109,
+    "closed_prs": 40
+  },
+  {
+    "rank": 124,
+    "name": "scala/scala3",
+    "total_prs": 231,
+    "prs_analyzed": 231,
+    "merged_prs": 161,
+    "closed_prs": 70
+  },
+  {
+    "rank": 125,
+    "name": "lampepfl/dotty",
+    "total_prs": 312,
+    "prs_analyzed": 312,
+    "merged_prs": 214,
+    "closed_prs": 98
+  },
+  {
+    "rank": 126,
+    "name": "jetbrains/kotlin",
+    "total_prs": 159,
+    "prs_analyzed": 159,
+    "merged_prs": 109,
+    "closed_prs": 50
+  },
+  {
+    "rank": 127,
+    "name": "jetbrains/intellij-community",
+    "total_prs": 281,
+    "prs_analyzed": 281,
+    "merged_prs": 208,
+    "closed_prs": 73
+  },
+  {
+    "rank": 128,
+    "name": "jetbrains/intellij-sdk-docs",
+    "total_prs": 270,
+    "prs_analyzed": 270,
+    "merged_prs": 237,
+    "closed_prs": 33
+  },
+  {
+    "rank": 129,
+    "name": "spring-projects/spring-boot",
+    "total_prs": 119,
+    "prs_analyzed": 119,
+    "merged_prs": 94,
+    "closed_prs": 25
+  },
+  {
+    "rank": 130,
+    "name": "spring-projects/spring-security",
+    "total_prs": 379,
+    "prs_analyzed": 379,
+    "merged_prs": 292,
+    "closed_prs": 87
+  },
+  {
+    "rank": 131,
+    "name": "spring-projects/spring-data-jpa",
+    "total_prs": 203,
+    "prs_analyzed": 203,
+    "merged_prs": 124,
+    "closed_prs": 79
+  },
+  {
+    "rank": 132,
+    "name": "spring-projects/spring-data-mongodb",
+    "total_prs": 488,
+    "prs_analyzed": 488,
+    "merged_prs": 364,
+    "closed_prs": 124
+  },
+  {
+    "rank": 133,
+    "name": "spring-projects/spring-data-redis",
+    "total_prs": 285,
+    "prs_analyzed": 285,
+    "merged_prs": 193,
+    "closed_prs": 92
+  },
+  {
+    "rank": 134,
+    "name": "spring-projects/spring-cloud-netflix",
+    "total_prs": 455,
+    "prs_analyzed": 455,
+    "merged_prs": 398,
+    "closed_prs": 57
+  },
+  {
+    "rank": 135,
+    "name": "spring-projects/spring-cloud-config",
+    "total_prs": 475,
+    "prs_analyzed": 475,
+    "merged_prs": 397,
+    "closed_prs": 78
+  },
+  {
+    "rank": 136,
+    "name": "libra/libra",
+    "total_prs": 315,
+    "prs_analyzed": 315,
+    "merged_prs": 262,
+    "closed_prs": 53
+  },
+  {
+    "rank": 137,
+    "name": "hyperledger/fabric",
+    "total_prs": 306,
+    "prs_analyzed": 306,
+    "merged_prs": 248,
+    "closed_prs": 58
+  },
+  {
+    "rank": 138,
+    "name": "hyperledger/iroha",
+    "total_prs": 400,
+    "prs_analyzed": 400,
+    "merged_prs": 347,
+    "closed_prs": 53
+  },
+  {
+    "rank": 139,
+    "name": "hyperledger/indy-node",
+    "total_prs": 382,
+    "prs_analyzed": 382,
+    "merged_prs": 299,
+    "closed_prs": 83
+  },
+  {
+    "rank": 140,
+    "name": "hyperledger/burrow",
+    "total_prs": 302,
+    "prs_analyzed": 302,
+    "merged_prs": 256,
+    "closed_prs": 46
+  },
+  {
+    "rank": 141,
+    "name": "hyperledger/sawtooth-core",
+    "total_prs": 112,
+    "prs_analyzed": 112,
+    "merged_prs": 70,
+    "closed_prs": 42
+  },
+  {
+    "rank": 142,
+    "name": "hyperledger/cactus",
+    "total_prs": 125,
+    "prs_analyzed": 125,
+    "merged_prs": 97,
+    "closed_prs": 28
+  },
+  {
+    "rank": 143,
+    "name": "trezor/trezor-firmware",
+    "total_prs": 286,
+    "prs_analyzed": 286,
+    "merged_prs": 250,
+    "closed_prs": 36
+  },
+  {
+    "rank": 144,
+    "name": "ledger-live/ledger-live-desktop",
+    "total_prs": 349,
+    "prs_analyzed": 349,
+    "merged_prs": 262,
+    "closed_prs": 87
+  },
+  {
+    "rank": 145,
+    "name": "MetaMask/metamask-mobile",
+    "total_prs": 287,
+    "prs_analyzed": 287,
+    "merged_prs": 240,
+    "closed_prs": 47
+  },
+  {
+    "rank": 146,
+    "name": "exodus-privacy/exodus",
+    "total_prs": 208,
+    "prs_analyzed": 208,
+    "merged_prs": 178,
+    "closed_prs": 30
+  },
+  {
+    "rank": 147,
+    "name": "signal/Signal-Android",
+    "total_prs": 244,
+    "prs_analyzed": 244,
+    "merged_prs": 167,
+    "closed_prs": 77
+  },
+  {
+    "rank": 148,
+    "name": "signalapp/Signal-iOS",
+    "total_prs": 147,
+    "prs_analyzed": 147,
+    "merged_prs": 126,
+    "closed_prs": 21
+  },
+  {
+    "rank": 149,
+    "name": "signal/Signal-Server",
+    "total_prs": 349,
+    "prs_analyzed": 349,
+    "merged_prs": 273,
+    "closed_prs": 76
+  },
+  {
+    "rank": 150,
+    "name": "briarproject/briar",
+    "total_prs": 187,
+    "prs_analyzed": 187,
+    "merged_prs": 156,
+    "closed_prs": 31
+  },
+  {
+    "rank": 151,
+    "name": "wire-android/wire-android",
+    "total_prs": 312,
+    "prs_analyzed": 312,
+    "merged_prs": 206,
+    "closed_prs": 106
+  },
+  {
+    "rank": 152,
+    "name": "wire-server/wire-server",
+    "total_prs": 259,
+    "prs_analyzed": 259,
+    "merged_prs": 213,
+    "closed_prs": 46
+  },
+  {
+    "rank": 153,
+    "name": "jitsi/jitsi-meet",
+    "total_prs": 247,
+    "prs_analyzed": 247,
+    "merged_prs": 167,
+    "closed_prs": 80
+  },
+  {
+    "rank": 154,
+    "name": "jitsi/lib-jitsi-meet",
+    "total_prs": 370,
+    "prs_analyzed": 370,
+    "merged_prs": 259,
+    "closed_prs": 111
+  },
+  {
+    "rank": 155,
+    "name": "mumble-voip/mumble",
+    "total_prs": 375,
+    "prs_analyzed": 375,
+    "merged_prs": 315,
+    "closed_prs": 60
+  },
+  {
+    "rank": 156,
+    "name": "pjsip/pjproject",
+    "total_prs": 401,
+    "prs_analyzed": 401,
+    "merged_prs": 303,
+    "closed_prs": 98
+  }
+]

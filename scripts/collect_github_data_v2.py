@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 import time
 from datetime import datetime
+import json
 
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 HEADERS = {'Authorization': f'bearer {GITHUB_TOKEN}'}
@@ -26,6 +27,9 @@ query($cursor: String) {
     nodes {
       ... on Repository {
         nameWithOwner
+        pullRequests(states: [MERGED, CLOSED]) {
+          totalCount
+        }
       }
     }
   }
@@ -36,6 +40,7 @@ query($cursor: String) {
 PR_QUERY = """
 query($owner: String!, $name: String!, $cursor: String) {
   repository(owner: $owner, name: $name) {
+    nameWithOwner
     pullRequests(states: [MERGED, CLOSED], first: 50, after: $cursor) {
       pageInfo {
         hasNextPage
@@ -73,25 +78,41 @@ query($owner: String!, $name: String!, $cursor: String) {
 
 def collect_data():
     all_data = []
+    selected_repos = []
     repo_cursor = None
-    repos_collected = 0
+    repos_processed = 0
+    repos_selected = 0
     
-    print("Buscando repositórios populares...")
-    while repos_collected < 50: # Vamos pegar os 50 primeiros para garantir volume
+    print("Buscando repositórios populares (200 maiores)...")
+    print("Critério: repositórios com pelo menos 100 PRs (MERGED + CLOSED)")
+    print("=" * 70)
+    
+    while repos_selected < 200:
         result = run_query(SEARCH_REPOS_QUERY, {"cursor": repo_cursor})
         repos = result['data']['search']['nodes']
         repo_page_info = result['data']['search']['pageInfo']
         
         for repo in repos:
+            repos_processed += 1
             name_with_owner = repo['nameWithOwner']
+            total_prs = repo['pullRequests']['totalCount']
+            
+            # Validação: repositório deve ter pelo menos 100 PRs
+            if total_prs < 100:
+                print(f"❌ [{repos_processed}] {name_with_owner} - {total_prs} PRs (rejeitado)")
+                continue
+            
+            repos_selected += 1
+            print(f"✅ [{repos_selected}/200] {name_with_owner} - {total_prs} PRs (selecionado)")
+            
             owner, name = name_with_owner.split('/')
-            print(f"Processando repo: {name_with_owner}")
             
             pr_cursor = None
             prs_in_repo = 0
+            prs_with_reviews = 0
             
             try:
-                while prs_in_repo < 100:
+                while True:
                     pr_result = run_query(PR_QUERY, {"owner": owner, "name": name, "cursor": pr_cursor})
                     repo_obj = pr_result['data']['repository']
                     if not repo_obj: break
@@ -114,6 +135,8 @@ def collect_data():
                         num_reviews = pr['reviews']['totalCount']
                         if num_reviews < 1: continue
                         
+                        prs_with_reviews += 1
+                        
                         all_data.append({
                             'repo': name_with_owner,
                             'number': pr['number'],
@@ -129,24 +152,52 @@ def collect_data():
                         })
                     
                     prs_in_repo += len(prs)
-                    if not pr_page_info['hasNextPage'] or len(all_data) > 1000: break
+                    if not pr_page_info['hasNextPage']: break
                     pr_cursor = pr_page_info['endCursor']
+                    time.sleep(0.5)  # Rate limiting
                     
             except Exception as e:
-                print(f"Erro ao processar {name_with_owner}: {e}")
-                
-            repos_collected += 1
-            if len(all_data) >= 1000: break
+                print(f"⚠️  Erro ao processar {name_with_owner}: {e}")
             
-        if not repo_page_info['hasNextPage'] or len(all_data) >= 1000: break
+            print(f"   → {prs_with_reviews} PRs com revisões coletados")
+            selected_repos.append({
+                'rank': repos_selected,
+                'name': name_with_owner,
+                'total_prs': total_prs,
+                'prs_analyzed': prs_with_reviews
+            })
+            
+            if repos_selected >= 200: break
+            
+        if not repo_page_info['hasNextPage'] or repos_selected >= 200: break
         repo_cursor = repo_page_info['endCursor']
+        time.sleep(1)  # Rate limiting
 
+    # Salvar dataset
     df = pd.DataFrame(all_data)
     df.to_csv('github_prs_data.csv', index=False)
-    print(f"Total de PRs coletados: {len(df)}")
+    
+    # Salvar lista de repositórios selecionados
+    repos_df = pd.DataFrame(selected_repos)
+    repos_df.to_csv('repositorios_selecionados.csv', index=False)
+    
+    # Salvar como JSON também para melhor legibilidade
+    with open('repositorios_selecionados.json', 'w', encoding='utf-8') as f:
+        json.dump(selected_repos, f, ensure_ascii=False, indent=2)
+    
+    print("\n" + "=" * 70)
+    print(f"✅ COLETA CONCLUÍDA")
+    print(f"   • Repositórios selecionados: {repos_selected}")
+    print(f"   • Total de PRs coletados: {len(df)}")
+    print(f"   • Arquivos salvos:")
+    print(f"     - github_prs_data.csv")
+    print(f"     - repositorios_selecionados.csv")
+    print(f"     - repositorios_selecionados.json")
+    print("=" * 70)
 
 if __name__ == "__main__":
     if not GITHUB_TOKEN:
-        print("GITHUB_TOKEN não configurado!")
+        print("❌ ERRO: GITHUB_TOKEN não configurado!")
+        print("Execute: export GITHUB_TOKEN='seu_token_aqui'")
     else:
         collect_data()
