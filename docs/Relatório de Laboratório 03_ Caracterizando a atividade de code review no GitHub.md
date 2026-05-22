@@ -23,9 +23,9 @@ Além disso, o estudo pretende analisar padrões de comportamento em equipes dis
 ## 2. Metodologia
 
 ### Coleta de Dados
-Os dados foram coletados utilizando a API do GitHub (REST v3). Foram selecionados Pull Requests de repositórios populares que atendessem aos seguintes critérios:
+Os dados foram coletados utilizando a API GraphQL do GitHub. O recorte final contém 200 repositórios (199 com PRs válidos no arquivo final) e 631.440 Pull Requests. Foram considerados os seguintes critérios:
 - Status: **MERGED** ou **CLOSED**.
-- Mínimo de **100 PRs** analisados.
+- Repositórios com pelo menos **100 PRs totais** (MERGED + CLOSED) no momento da seleção.
 - Pelo menos **uma revisão** realizada (comentários de revisão).
 - Intervalo entre criação e fechamento de pelo menos **uma hora**.
 
@@ -49,19 +49,19 @@ Os dados foram coletados utilizando a API do GitHub (REST v3). Foram selecionado
 
 | Questão de Pesquisa | Métrica | Mediana Merged | Mediana Closed | p-value (MWU) | Interpretação
 |---------------------|---------|----------------|----------------|---------------|
-| **RQ 01: Tamanho** | Linhas | 105.00 | 138.50 | 0.0123 |PRs menores apresentaram maior taxa de aprovação, indicando que mudanças mais compactas tendem a facilitar o processo de revisão.
-| **RQ 02: Tempo** | Horas | 23.28 | 34.61 | 0.0003 | PRs aceitos foram processados mais rapidamente, sugerindo que revisões mais ágeis estão associadas a contribuições mais eficientes.
-| **RQ 03: Descrição**| Caracteres| 301.50 | 285.00 | 0.6438 | Não foi encontrada diferença estatisticamente significativa entre PRs aceitos e rejeitados em relação ao tamanho da descrição.
-| **RQ 04: Interações**| Total | 61.00 | 63.00 | 0.9223 | O volume de interações não apresentou impacto relevante no resultado final do PR dentro da amostra analisada.
+| **RQ 01: Tamanho** | Linhas | 39,00 | 47,00 | < 0.0001 | PRs merged tendem a ser menores que PRs closed, com diferença significativa.
+| **RQ 02: Tempo** | Horas | 28,35 | 233,82 | < 0.0001 | PRs closed permanecem abertos por muito mais tempo, com diferença significativa.
+| **RQ 03: Descrição**| Caracteres| 327,00 | 648,00 | < 0.0001 | PRs closed tendem a ter descrições mais longas na mediana.
+| **RQ 04: Interações**| Total | 5,00 | 6,00 | < 0.0001 | PRs closed apresentam mais interações na mediana.
 
 ### B. Número de Revisões
 
 | Questão de Pesquisa | Variável | Correlação (Spearman) | p-value | Interpretação
 |---------------------|----------|-----------------------|---------|
-| **RQ 05: Tamanho** | Linhas Totais | 0.4466 | < 0.0001 | Foi identificada uma correlação positiva moderada entre o tamanho do PR e o número de revisões, indicando que alterações maiores tendem a exigir mais ciclos de análise.
-| **RQ 06: Tempo** | Duração (h) | 0.2764 | < 0.0001 | Observou-se uma correlação positiva fraca entre o tempo de processamento e o número de revisões, sugerindo que PRs com revisões mais extensas permanecem abertos por mais tempo.
-| **RQ 07: Descrição**| Tamanho Descrição| -0.0826 | 0.0649 | A correlação encontrada foi muito fraca e estatisticamente não significativa, indicando que o tamanho da descrição praticamente não influencia a quantidade de revisões realizadas.
-| **RQ 08: Interações**| Interações Totais| 0.9983 | < 0.0001 | Foi observada uma correlação extremamente alta entre interações e número de revisões, demonstrando forte dependência entre comentários, participantes e atividades de revisão.
+| **RQ 05: Tamanho** | Linhas Totais | 0.3428 | < 0.0001 | Correlação positiva moderada: PRs maiores tendem a ter mais revisões.
+| **RQ 06: Tempo** | Duração (h) | 0.2979 | < 0.0001 | Correlação positiva fraca/moderada: PRs com mais revisões tendem a permanecer abertos por mais tempo.
+| **RQ 07: Descrição**| Tamanho Descrição| 0.1389 | < 0.0001 | Correlação positiva fraca, porém significativa.
+| **RQ 08: Interações**| Interações Totais| 0.4147 | < 0.0001 | Correlação positiva moderada: mais interações se associam a mais revisões.
 
 ---
 
@@ -69,20 +69,20 @@ Os dados foram coletados utilizando a API do GitHub (REST v3). Foram selecionado
 
 ### Análise dos Resultados vs. Hipóteses
 
-1.  **RQ 01 & RQ 02 (Tamanho e Tempo):** Confirmou-se que PRs aceitos (Merged) tendem a ser significativamente menores (105 vs 138 linhas) e processados mais rapidamente (23h vs 34h) do que os rejeitados. O p-value baixo (< 0.05) garante confiança estatística nessas observações.
-2.  **RQ 03 (Descrição):** A hipótese de que a descrição influencia o merge não foi sustentada estatisticamente (p-value = 0.64), indicando que, nesta amostra, o tamanho da descrição não foi um fator determinante para o sucesso do PR.
-3.  **RQ 05 & RQ 06 (Número de Revisões):** Existe uma correlação positiva moderada entre o tamanho do PR e o número de revisões (0.44). Isso sugere que mudanças maiores naturalmente atraem mais escrutínio e ciclos de revisão.
-4.  **RQ 08 (Interações):** Observou-se uma correlação quase perfeita (0.99) entre interações e número de revisões. Isso é esperado, dado que cada revisão gera comentários e envolve participantes, tornando-as variáveis altamente dependentes.
+1.  **RQ 01 & RQ 02 (Tamanho e Tempo):** PRs merged tendem a ser menores e com menor duração que PRs closed, com diferença estatística clara.
+2.  **RQ 03 & RQ 04 (Descrição e Interações):** Na base atual, PRs closed apresentam medianas maiores de descrição e interações.
+3.  **RQ 05-RQ08 (Revisões):** Todas as variáveis analisadas apresentam correlação positiva e significativa com o número de revisões, com maior intensidade para interações e tamanho.
+4.  **Magnitude dos efeitos:** apesar da significância estatística elevada (N grande), os coeficientes de correlação variam de fracos a moderados, sem evidência de relação forte.
 
 ---
 
 ## 5. Conclusão
 
-A atividade de code review no GitHub mostrou-se fortemente influenciada pela complexidade das alterações realizadas, especialmente pelo tamanho do Pull Request. Os resultados indicam que PRs menores e mais concisos possuem maior probabilidade de aprovação, além de apresentarem menor tempo de processamento e menos ciclos de revisão. Isso evidencia que mudanças reduzidas facilitam a análise por parte dos revisores, tornando o processo mais eficiente e colaborativo.
+A atividade de code review no GitHub, na base final coletada, mostra diferenças consistentes entre PRs merged e closed em todas as dimensões analisadas (tamanho, tempo, descrição e interações). Em especial, PRs merged tendem a ser menores e concluídos mais rapidamente.
 
-Além disso, verificou-se que PRs maiores tendem a gerar mais interações, comentários e revisões, aumentando o esforço necessário para validação e integração do código. Dessa forma, a fragmentação de alterações em contribuições menores pode representar uma estratégia importante para otimizar o fluxo de desenvolvimento e melhorar a produtividade das equipes.
+Também foi observada associação positiva entre número de revisões e todas as variáveis estudadas, com maior intensidade para interações e tamanho do PR. Isso reforça que mudanças maiores e discussões mais intensas tendem a demandar mais ciclos de revisão.
 
-Por outro lado, embora a descrição do PR seja relevante para fornecer contexto aos revisores e facilitar a comunicação entre colaboradores, a análise estatística realizada não identificou impacto direto dessa variável no resultado final de aprovação ou rejeição do PR. Isso sugere que fatores técnicos e estruturais relacionados à própria mudança possuem maior influência no processo de merge do que o tamanho textual da descrição apresentada.
+Como o volume amostral é muito alto, recomenda-se interpretar significância estatística junto com tamanho de efeito. Os achados são consistentes para orientar práticas de engenharia, como reduzir escopo de PRs e favorecer revisões incrementais.
 
 ---
 

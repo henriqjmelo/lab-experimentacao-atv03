@@ -2,7 +2,7 @@
 
 ## Resumo Executivo
 
-Análise completa de 46.165 Pull Requests de 156 repositórios populares do GitHub, investigando a influência de variáveis no merge de PRs e no número de revisões.
+Análise completa de 631.440 Pull Requests de 200 repositórios no recorte final (199 com dados válidos de PR), investigando a influência de variáveis no merge de PRs e no número de revisões.
 
 ---
 
@@ -10,9 +10,9 @@ Análise completa de 46.165 Pull Requests de 156 repositórios populares do GitH
 
 ### 1. Preparação dos Dados
 
-**Dataset:** 46.165 PRs de 156 repositórios populares
-- **PRs MERGED:** 34.579 (74,9%)
-- **PRs CLOSED:** 11.586 (25,1%)
+**Dataset:** 631.440 PRs do recorte final de 200 repositórios
+- **PRs MERGED:** 495.252 (78,43%)
+- **PRs CLOSED:** 136.188 (21,57%)
 
 **Filtros aplicados:**
 - Status: MERGED ou CLOSED
@@ -81,41 +81,41 @@ Onde $d_i$ é a diferença de ranks entre pares.
 
 ```
 Teste Mann-Whitney U para Tamanho (Linhas)
-p-value: 0.2326
-Mediana MERGED: 76 linhas
-Mediana CLOSED: 78 linhas
+p-value: < 0.0001
+Mediana MERGED: 39 linhas
+Mediana CLOSED: 47 linhas
 ```
-**Resultado:** Sem diferença significativa (p > 0.05)
+**Resultado:** Diferença estatisticamente significativa (p < 0.05)
 
 #### RQ 02: Tempo de Análise vs Feedback Final
 
 ```
 Teste Mann-Whitney U para Duração
-p-value: 0.5371
-Mediana MERGED: 12.29 horas
-Mediana CLOSED: 12.19 horas
+p-value: < 0.0001
+Mediana MERGED: 28.35 horas
+Mediana CLOSED: 233.82 horas
 ```
-**Resultado:** Sem diferença significativa (p > 0.05)
+**Resultado:** Diferença estatisticamente significativa (p < 0.05)
 
 #### RQ 03: Descrição vs Feedback Final
 
 ```
 Teste Mann-Whitney U para Descrição
-p-value: 0.3221
-Mediana MERGED: 209 caracteres
-Mediana CLOSED: 205 caracteres
+p-value: < 0.0001
+Mediana MERGED: 327 caracteres
+Mediana CLOSED: 648 caracteres
 ```
-**Resultado:** Sem diferença significativa (p > 0.05)
+**Resultado:** Diferença estatisticamente significativa (p < 0.05)
 
 #### RQ 04: Interações vs Feedback Final
 
 ```
 Teste Mann-Whitney U para Interações
-p-value: 0.2011
-Mediana MERGED: 32 interações
-Mediana CLOSED: 33 interações
+p-value: < 0.0001
+Mediana MERGED: 5 interações
+Mediana CLOSED: 6 interações
 ```
-**Resultado:** Sem diferença significativa (p > 0.05)
+**Resultado:** Diferença estatisticamente significativa (p < 0.05)
 
 ---
 
@@ -124,73 +124,89 @@ Mediana CLOSED: 33 interações
 #### RQ 05: Tamanho vs Número de Revisões
 
 ```
-Correlação Spearman (Linhas Adicionadas):
-ρ = 0.6171, p-value < 0.0001
+Correlação Spearman (Tamanho em Linhas Totais):
+ρ = 0.3428, p-value < 0.0001
 ```
-**Resultado:** Correlação positiva moderada SIGNIFICATIVA
+**Resultado:** Correlação positiva moderada e significativa
 
 #### RQ 06: Tempo de Análise vs Número de Revisões
 
 ```
 Correlação Spearman:
-ρ = -0.0081, p-value = 0.0820
+ρ = 0.2979, p-value < 0.0001
 ```
-**Resultado:** Sem correlação significativa (p > 0.05)
+**Resultado:** Correlação positiva fraca/moderada e significativa
 
 #### RQ 07: Descrição vs Número de Revisões
 
 ```
 Correlação Spearman:
-ρ = 0.0031, p-value = 0.5077
+ρ = 0.1389, p-value < 0.0001
 ```
-**Resultado:** Sem correlação significativa (p > 0.05)
+**Resultado:** Correlação positiva fraca e significativa
 
 #### RQ 08: Interações vs Número de Revisões
 
 ```
 Correlação Spearman:
-ρ = 0.5632, p-value < 0.0001
+ρ = 0.4147, p-value < 0.0001
 ```
-**Resultado:** Correlação positiva moderada SIGNIFICATIVA
+**Resultado:** Correlação positiva moderada e significativa
 
 ---
 
 ## Visualizações Geradas
 
-### 1. status_analysis.png
-Boxplots mostrando distribuição das métricas para PRs MERGED vs CLOSED:
-- RQ 01: Tamanho do PR (escala log)
-- RQ 02: Tempo de Análise (escala log)
-- RQ 03: Tamanho da Descrição (escala symlog)
-- RQ 04: Interações Totais (escala log)
+### 1. docs/rq01_tamanho_por_status.png
+RQ01: Tamanho do PR (linhas) por status (boxplot com escala log).
 
-### 2. reviews_analysis.png
-Scatter plots mostrando relação entre variáveis e número de revisões:
-- RQ 05: Tamanho (linhas) vs Revisões
-- RQ 06: Tempo de Análise vs Revisões
-- RQ 07: Descrição vs Revisões
-- RQ 08: Interações vs Revisões
+### 2. docs/rq02_tempo_por_status.png
+RQ02: Tempo de análise (horas) por status (boxplot com escala log).
+
+### 3. docs/rq03_descricao_por_status.png
+RQ03: Tamanho da descrição por status (boxplot com escala symlog).
+
+### 4. docs/rq04_interacoes_por_status.png
+RQ04: Interações totais por status (boxplot com escala log).
+
+### 5. docs/rq05_tamanho_vs_revisoes.png
+RQ05: Tamanho (linhas) vs número de revisões (scatter com eixo x em log).
+
+### 6. docs/rq06_tempo_vs_revisoes.png
+RQ06: Tempo de análise vs número de revisões (scatter com eixo x em log).
+
+### 7. docs/rq07_descricao_vs_revisoes.png
+RQ07: Tamanho da descrição vs número de revisões (scatter com eixo x em symlog).
+
+### 8. docs/rq08_interacoes_vs_revisoes.png
+RQ08: Interações totais vs número de revisões (scatter com eixo x em log).
 
 ---
 
 ## Conclusões
 
-1. **Tamanho do PR não influencia decisão de merge** - Contrário à hipótese inicial
-2. **Tempo de análise não diferencia PRs aceitos de rejeitados**
-3. **Descrição detalhada não afeta probabilidade de merge**
-4. **PRs maiores recebem mais revisões** - Correlação 0.62 (significativa)
-5. **Mais interações → mais revisões** - Correlação 0.56 (significativa)
+1. **As quatro dimensões diferenciam MERGED vs CLOSED** com significância estatística na base atual.
+2. **PRs MERGED tendem a ser menores e mais rápidos** que PRs CLOSED.
+3. **PRs CLOSED tendem a ter descrições e interações maiores** na mediana.
+4. **Número de revisões cresce com tamanho, tempo e interações** (todas correlações positivas significativas).
+5. **Descrição também correlaciona com revisões**, mas com efeito fraco.
 
 ---
 
 ## Arquivos Gerados
 
-- `github_prs_data.csv` - Dataset completo (46.165 registros)
-- `repositorios_selecionados.csv` - Lista de 156 repositórios
+- `github_prs_data.csv` - Dataset completo (631.440 registros)
+- `repositorios_selecionados.csv` - Lista de 200 repositórios
 - `repositorios_selecionados.json` - Lista em JSON
-- `status_analysis.png` - Visualização de RQ01-04
-- `reviews_analysis.png` - Visualização de RQ05-08
+- `docs/rq01_tamanho_por_status.png` - Visualização da RQ01
+- `docs/rq02_tempo_por_status.png` - Visualização da RQ02
+- `docs/rq03_descricao_por_status.png` - Visualização da RQ03
+- `docs/rq04_interacoes_por_status.png` - Visualização da RQ04
+- `docs/rq05_tamanho_vs_revisoes.png` - Visualização da RQ05
+- `docs/rq06_tempo_vs_revisoes.png` - Visualização da RQ06
+- `docs/rq07_descricao_vs_revisoes.png` - Visualização da RQ07
+- `docs/rq08_interacoes_vs_revisoes.png` - Visualização da RQ08
 
 ---
 
-*Análise realizada em 15 de maio de 2026 - Lab03S03*
+*Análise atualizada em 22 de maio de 2026 - Lab03S03*

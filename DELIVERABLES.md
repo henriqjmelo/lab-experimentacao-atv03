@@ -2,7 +2,7 @@
 
 ## ✅ Status Final
 
-Toda a documentação, coleta, análise e visualizações foram **concluídas com sucesso**.
+Documentação e análise atualizadas para a base final coletada.
 
 ---
 
@@ -11,18 +11,14 @@ Toda a documentação, coleta, análise e visualizações foram **concluídas co
 ```
 lab-experimentacao-atv03/
 ├── README.md                                  # Original
-├── REPOSITORIOS_SELECIONADOS.md              # ✨ NOVO - Lista de 156 repos
+├── REPOSITORIOS_SELECIONADOS.md              # ✨ Lista atualizada de 200 repos
 ├── ANALISE_METODOLOGIA.md                    # ✨ NOVO - Detalhes metodológicos
 │
 ├── docs/
 │   ├── Relatório de Laboratório 03...md      # Relatório original (revisar)
-│   ├── github_prs_data.csv                   # ✨ NOVO - 46.165 PRs completo
-│   ├── repositorios_selecionados.csv         # ✨ NOVO - 156 repositórios
+│   ├── github_prs_data.csv                   # ✨ NOVO - 631.440 PRs completos
+│   ├── repositorios_selecionados.csv         # ✨ NOVO - 200 repositórios
 │   └── repositorios_selecionados.json        # ✨ NOVO - Dados em JSON
-│
-├── imagens/
-│   ├── status_analysis.png                   # ✨ NOVO - Boxplots RQ01-04
-│   └── reviews_analysis.png                  # ✨ NOVO - Scatter plots RQ05-08
 │
 └── scripts/
     ├── collect_github_data_v2.py             # ✅ Corrigido - 200 repos, validação
@@ -44,7 +40,7 @@ lab-experimentacao-atv03/
   - Salva lista de repositórios selecionados
 
 - [x] **Lista documentada** (`REPOSITORIOS_SELECIONADOS.md`)
-  - 156 repositórios populares selecionados
+  - 200 repositórios no recorte final
   - Detalhes de cada repositório
   - Validação de critérios
 
@@ -54,9 +50,9 @@ lab-experimentacao-atv03/
 ✅ **Completo**
 
 - [x] **Dataset pronto** (`docs/github_prs_data.csv`)
-  - 46.165 Pull Requests
-  - 34.579 MERGED (74.9%)
-  - 11.586 CLOSED (25.1%)
+  - 631.440 Pull Requests
+  - 495.252 MERGED (78,43%)
+  - 136.188 CLOSED (21,57%)
   - Todas as métricas calculadas
 
 - [x] **Relatório com hipóteses** (original)
@@ -76,8 +72,8 @@ lab-experimentacao-atv03/
   - ✅ Interpretações com confiança estatística (p-values)
 
 - [x] **Visualizações**
-  - ✅ `status_analysis.png`: 4 boxplots (RQ01-04)
-  - ✅ `reviews_analysis.png`: 4 scatter plots (RQ05-08)
+  - ✅ 8 imagens individuais, uma por RQ (RQ01-RQ08)
+  - ✅ Arquivos em `docs/rq01_...png` até `docs/rq08_...png`
   - Escala logarítmica/symlog para melhor visualização
 
 - [x] **Documentação metodológica** (`ANALISE_METODOLOGIA.md`)
@@ -92,34 +88,33 @@ lab-experimentacao-atv03/
 
 | Métrica | Valor |
 |---------|-------|
-| **Repositórios selecionados** | 156 |
-| **Total de PRs** | 46.165 |
-| **PRs MERGED** | 34.579 (74,9%) |
-| **PRs CLOSED** | 11.586 (25,1%) |
-| **Tamanho médio (linhas)** | 33 (mediana) |
-| **Duração média (horas)** | 12,3 (mediana) |
-| **Descrição média (chars)** | 208 (mediana) |
-| **Revisões médias** | 8 (mediana) |
+| **Repositórios no CSV final** | 200 |
+| **Repositórios com PRs no dataset** | 199 |
+| **Total de PRs** | 631.440 |
+| **PRs MERGED** | 495.252 (78,43%) |
+| **PRs CLOSED** | 136.188 (21,57%) |
+| **Tamanho total (linhas)** | 40 (mediana) |
+| **Duração (horas)** | 43,12 (mediana) |
+| **Descrição (chars)** | 385 (mediana) |
+| **Revisões** | 2 (mediana) |
 
 ---
 
 ## 🔬 Principais Descobertas
 
 ### Feedback Final (RQ01-04)
-❌ **Nenhuma das variáveis diferencia PRs MERGED vs CLOSED significativamente**
-- Tamanho: p = 0.23
-- Tempo: p = 0.54
-- Descrição: p = 0.32
-- Interações: p = 0.20
+✅ **As quatro variáveis diferenciam PRs MERGED vs CLOSED com significância estatística**
+- Tamanho: p < 0.0001
+- Tempo: p < 0.0001
+- Descrição: p < 0.0001
+- Interações: p < 0.0001
 
 ### Número de Revisões (RQ05-08)
-✅ **Duas correlações significativas encontradas:**
-1. Tamanho → Revisões: ρ = 0.62 (p < 0.0001) ✨
-2. Interações → Revisões: ρ = 0.56 (p < 0.0001) ✨
-
-Sem correlação significativa com:
-- Tempo de análise
-- Descrição do PR
+✅ **Quatro correlações positivas significativas encontradas:**
+1. Tamanho → Revisões: ρ = 0.3428 (p < 0.0001)
+2. Tempo → Revisões: ρ = 0.2979 (p < 0.0001)
+3. Descrição → Revisões: ρ = 0.1389 (p < 0.0001)
+4. Interações → Revisões: ρ = 0.4147 (p < 0.0001)
 
 ---
 
@@ -132,8 +127,14 @@ Sem correlação significativa com:
 4. `docs/github_prs_data.csv` - Dataset completo
 5. `docs/repositorios_selecionados.csv` - Lista de repositórios
 6. `docs/repositorios_selecionados.json` - Dados em JSON
-7. `imagens/status_analysis.png` - Visualização 1
-8. `imagens/reviews_analysis.png` - Visualização 2
+7. `docs/rq01_tamanho_por_status.png` - Visualização da RQ01
+8. `docs/rq02_tempo_por_status.png` - Visualização da RQ02
+9. `docs/rq03_descricao_por_status.png` - Visualização da RQ03
+10. `docs/rq04_interacoes_por_status.png` - Visualização da RQ04
+11. `docs/rq05_tamanho_vs_revisoes.png` - Visualização da RQ05
+12. `docs/rq06_tempo_vs_revisoes.png` - Visualização da RQ06
+13. `docs/rq07_descricao_vs_revisoes.png` - Visualização da RQ07
+14. `docs/rq08_interacoes_vs_revisoes.png` - Visualização da RQ08
 
 ### ✅ Modificados (melhorados)
 1. `scripts/collect_github_data_v2.py` - Agora coleta 200 repos com validação
@@ -144,28 +145,23 @@ Sem correlação significativa com:
 ## ✓ Checklist de Validação
 
 - [x] Repositórios têm ≥100 PRs cada
-- [x] Todos 46.165 PRs têm ≥1 revisão
+- [x] Todos os 631.440 PRs têm ≥1 revisão
 - [x] Todos PRs têm duração ≥1 hora
 - [x] Dados em múltiplos formatos (CSV, JSON)
 - [x] Testes estatísticos apropriados (não-paramétricos)
 - [x] p-values reportados para cada teste
 - [x] Visualizações em escala apropriada (log/symlog)
 - [x] Documentação completa (metodologia + resultados)
-- [x] 156 repositórios documentados
+- [x] 200 repositórios documentados no recorte final
 - [x] Conclusões baseadas em hipóteses testadas
 
 ---
 
 ## 🎯 Próximos Passos (Opcional)
 
-⚠️ **O único item restante é revisar o Relatório Original:**
-- `docs/Relatório de Laboratório 03_ Caracterizando a atividade de code review no GitHub.md`
-
-Sugestão: Atualizar o relatório para:
-1. Mencionar os 156 repositórios analisados
-2. Incluir gráficos (status_analysis.png e reviews_analysis.png)
-3. Aprofundar discussão com novos resultados
-4. Adicionar conclusões finais
+⚠️ **Item de atenção:**
+1. Há 1 repositório no CSV final sem PRs no dataset (ruanyf/weekly).
+2. Esse ponto já está documentado no arquivo de repositórios.
 
 ---
 
@@ -180,4 +176,4 @@ Sugestão: Atualizar o relatório para:
 
 ---
 
-*Finalizado em 15 de maio de 2026*
+*Atualizado em 22 de maio de 2026*

@@ -2,7 +2,13 @@ import pandas as pd
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 import seaborn as sns
-import numpy as np
+
+
+def save_figure(filename):
+    plt.tight_layout()
+    plt.savefig(filename, dpi=300, bbox_inches='tight')
+    plt.close()
+
 
 def analyze():
     print("Carregando dados...")
@@ -42,89 +48,119 @@ def analyze():
     
     # RQ 01. Qual a relação entre o tamanho dos PRs e o feedback final das revisões?
     print("\nRQ 01: Tamanho vs Feedback Final")
-    calc_mann_whitney('total_lines', 'Tamanho (Linhas)')
-    calc_mann_whitney('changed_files', 'Tamanho (Arquivos)')
+    rq01_lines_stat, rq01_lines_p = calc_mann_whitney('total_lines', 'Tamanho (Linhas)')
+    rq01_files_stat, rq01_files_p = calc_mann_whitney('changed_files', 'Tamanho (Arquivos)')
     
     # RQ 02. Qual a relação entre o tempo de análise dos PRs e o feedback final das revisões?
     print("\nRQ 02: Tempo de Análise vs Feedback Final")
-    calc_mann_whitney('duration_hours', 'Tempo de Análise (Horas)')
+    rq02_stat, rq02_p = calc_mann_whitney('duration_hours', 'Tempo de Análise (Horas)')
     
     # RQ 03. Qual a relação entre a descrição dos PRs e o feedback final das revisões?
     print("\nRQ 03: Descrição vs Feedback Final")
-    calc_mann_whitney('body_len', 'Tamanho da Descrição (Caracteres)')
+    rq03_stat, rq03_p = calc_mann_whitney('body_len', 'Tamanho da Descrição (Caracteres)')
     
     # RQ 04. Qual a relação entre as interações nos PRs e o feedback final das revisões?
     print("\nRQ 04: Interações vs Feedback Final")
-    calc_mann_whitney('total_interactions', 'Interações Totais')
+    rq04_stat, rq04_p = calc_mann_whitney('total_interactions', 'Interações Totais')
     
     print("\n--- B. Número de Revisões ---")
     
     # RQ 05. Qual a relação entre o tamanho dos PRs e o número de revisões realizadas?
     print("\nRQ 05: Tamanho vs Número de Revisões")
-    calc_correlation(df['total_lines'], df['reviews'], 'Tamanho (Linhas)', 'Número de Revisões')
-    calc_correlation(df['changed_files'], df['reviews'], 'Tamanho (Arquivos)', 'Número de Revisões')
+    rq05_lines_corr, rq05_lines_p = calc_correlation(df['total_lines'], df['reviews'], 'Tamanho (Linhas)', 'Número de Revisões')
+    rq05_files_corr, rq05_files_p = calc_correlation(df['changed_files'], df['reviews'], 'Tamanho (Arquivos)', 'Número de Revisões')
     
     # RQ 06. Qual a relação entre o tempo de análise dos PRs e o número de revisões realizadas?
     print("\nRQ 06: Tempo de Análise vs Número de Revisões")
-    calc_correlation(df['duration_hours'], df['reviews'], 'Tempo de Análise (Horas)', 'Número de Revisões')
+    rq06_corr, rq06_p = calc_correlation(df['duration_hours'], df['reviews'], 'Tempo de Análise (Horas)', 'Número de Revisões')
     
     # RQ 07. Qual a relação entre a descrição dos PRs e o número de revisões realizadas?
     print("\nRQ 07: Descrição vs Número de Revisões")
-    calc_correlation(df['body_len'], df['reviews'], 'Tamanho da Descrição (Caracteres)', 'Número de Revisões')
+    rq07_corr, rq07_p = calc_correlation(df['body_len'], df['reviews'], 'Tamanho da Descrição (Caracteres)', 'Número de Revisões')
     
     # RQ 08. Qual a relação entre as interações nos PRs e o número de revisões realizadas?
     print("\nRQ 08: Interações vs Número de Revisões")
-    calc_correlation(df['total_interactions'], df['reviews'], 'Interações Totais', 'Número de Revisões')
+    rq08_corr, rq08_p = calc_correlation(df['total_interactions'], df['reviews'], 'Interações Totais', 'Número de Revisões')
     
-    # Gerar visualizações
-    print("\nGerando visualizações...")
+    # Gerar visualizações (apenas gráficos de barra)
+    print("\nGerando visualizações (apenas barras, 1 arquivo por RQ)...")
     sns.set_theme(style="whitegrid")
-    
-    # Boxplots para RQ 01-04
-    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
-    
-    sns.boxplot(x='state', y='total_lines', data=df, ax=axes[0, 0])
-    axes[0, 0].set_yscale('log')
-    axes[0, 0].set_title('RQ 01: Tamanho do PR (Linhas) por Status')
-    
-    sns.boxplot(x='state', y='duration_hours', data=df, ax=axes[0, 1])
-    axes[0, 1].set_yscale('log')
-    axes[0, 1].set_title('RQ 02: Tempo de Análise (Horas) por Status')
-    
-    sns.boxplot(x='state', y='body_len', data=df, ax=axes[1, 0])
-    axes[1, 0].set_yscale('symlog')
-    axes[1, 0].set_title('RQ 03: Tamanho da Descrição por Status')
-    
-    sns.boxplot(x='state', y='total_interactions', data=df, ax=axes[1, 1])
-    axes[1, 1].set_yscale('log')
-    axes[1, 1].set_title('RQ 04: Interações Totais por Status')
-    
-    plt.tight_layout()
-    plt.savefig('status_analysis.png')
-    
-    # Scatter plots para RQ 05-08
-    fig, axes = plt.subplots(2, 2, figsize=(15, 12))
-    
-    sns.scatterplot(x='total_lines', y='reviews', data=df, alpha=0.5, ax=axes[0, 0])
-    axes[0, 0].set_xscale('log')
-    axes[0, 0].set_title('RQ 05: Tamanho (Linhas) vs Revisões')
-    
-    sns.scatterplot(x='duration_hours', y='reviews', data=df, alpha=0.5, ax=axes[0, 1])
-    axes[0, 1].set_xscale('log')
-    axes[0, 1].set_title('RQ 06: Tempo de Análise vs Revisões')
-    
-    sns.scatterplot(x='body_len', y='reviews', data=df, alpha=0.5, ax=axes[1, 0])
-    axes[1, 0].set_xscale('symlog')
-    axes[1, 0].set_title('RQ 07: Tamanho da Descrição vs Revisões')
-    
-    sns.scatterplot(x='total_interactions', y='reviews', data=df, alpha=0.5, ax=axes[1, 1])
-    axes[1, 1].set_xscale('log')
-    axes[1, 1].set_title('RQ 08: Interações vs Revisões')
-    
-    plt.tight_layout()
-    plt.savefig('reviews_analysis.png')
-    
-    print("Análise concluída e gráficos salvos.")
+
+    merged_color = '#2ca02c'
+    closed_color = '#d62728'
+    corr_color = '#1f77b4'
+
+    # RQ01 - mediana por status
+    rq01_medians = [df_merged['total_lines'].median(), df_closed['total_lines'].median()]
+    plt.figure(figsize=(9, 5))
+    plt.bar(['MERGED', 'CLOSED'], rq01_medians, color=[merged_color, closed_color])
+    plt.yscale('log')
+    plt.title('RQ01: Mediana de Tamanho (Linhas) por Status')
+    plt.ylabel('Linhas totais (escala log)')
+    save_figure('rq01_bar_tamanho_por_status.png')
+
+    # RQ02 - mediana por status
+    rq02_medians = [df_merged['duration_hours'].median(), df_closed['duration_hours'].median()]
+    plt.figure(figsize=(9, 5))
+    plt.bar(['MERGED', 'CLOSED'], rq02_medians, color=[merged_color, closed_color])
+    plt.yscale('log')
+    plt.title('RQ02: Mediana de Tempo (Horas) por Status')
+    plt.ylabel('Duracao em horas (escala log)')
+    save_figure('rq02_bar_tempo_por_status.png')
+
+    # RQ03 - mediana por status
+    rq03_medians = [df_merged['body_len'].median(), df_closed['body_len'].median()]
+    plt.figure(figsize=(9, 5))
+    plt.bar(['MERGED', 'CLOSED'], rq03_medians, color=[merged_color, closed_color])
+    plt.yscale('symlog')
+    plt.title('RQ03: Mediana de Descricao por Status')
+    plt.ylabel('Caracteres da descricao (escala symlog)')
+    save_figure('rq03_bar_descricao_por_status.png')
+
+    # RQ04 - mediana por status
+    rq04_medians = [df_merged['total_interactions'].median(), df_closed['total_interactions'].median()]
+    plt.figure(figsize=(9, 5))
+    plt.bar(['MERGED', 'CLOSED'], rq04_medians, color=[merged_color, closed_color])
+    plt.yscale('log')
+    plt.title('RQ04: Mediana de Interacoes por Status')
+    plt.ylabel('Interacoes totais (escala log)')
+    save_figure('rq04_bar_interacoes_por_status.png')
+
+    # RQ05-RQ08 mantidos no formato original (scatter)
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(x='total_lines', y='reviews', data=df, alpha=0.4)
+    plt.xscale('log')
+    plt.title('RQ05: Tamanho (Linhas) vs Numero de Revisoes')
+    plt.xlabel('Linhas totais (escala log)')
+    plt.ylabel('Numero de revisoes')
+    save_figure('rq05_tamanho_vs_revisoes.png')
+
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(x='duration_hours', y='reviews', data=df, alpha=0.4)
+    plt.xscale('log')
+    plt.title('RQ06: Tempo de Analise vs Numero de Revisoes')
+    plt.xlabel('Duracao em horas (escala log)')
+    plt.ylabel('Numero de revisoes')
+    save_figure('rq06_tempo_vs_revisoes.png')
+
+    rq07_df = df[df['body_len'] > 0]
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(x='body_len', y='reviews', data=rq07_df, alpha=0.4)
+    plt.xscale('log')
+    plt.title('RQ07: Tamanho da Descricao vs Numero de Revisoes')
+    plt.xlabel('Caracteres da descricao (escala log)')
+    plt.ylabel('Numero de revisoes')
+    save_figure('rq07_descricao_vs_revisoes.png')
+
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(x='total_interactions', y='reviews', data=df, alpha=0.4)
+    plt.xscale('log')
+    plt.title('RQ08: Interacoes vs Numero de Revisoes')
+    plt.xlabel('Interacoes totais (escala log)')
+    plt.ylabel('Numero de revisoes')
+    save_figure('rq08_interacoes_vs_revisoes.png')
+
+    print("Análise concluída. RQ01-RQ04 em barras e RQ05-RQ08 no formato original.")
 
 if __name__ == "__main__":
     analyze()
