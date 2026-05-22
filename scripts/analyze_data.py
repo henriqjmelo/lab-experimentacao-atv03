@@ -82,8 +82,8 @@ def analyze():
     print("\nRQ 08: Interações vs Número de Revisões")
     rq08_corr, rq08_p = calc_correlation(df['total_interactions'], df['reviews'], 'Interações Totais', 'Número de Revisões')
     
-    # Gerar visualizações (apenas gráficos de barra)
-    print("\nGerando visualizações (apenas barras, 1 arquivo por RQ)...")
+    # Gerar visualizações (barras para RQ01-RQ04 e scatter para RQ05-RQ08)
+    print("\nGerando visualizações (RQ01-RQ04 em barras, RQ05-RQ08 em scatter)...")
     sns.set_theme(style="whitegrid")
 
     merged_color = '#2ca02c'

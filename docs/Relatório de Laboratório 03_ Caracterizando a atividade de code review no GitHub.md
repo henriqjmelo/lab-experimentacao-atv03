@@ -8,9 +8,9 @@
 
 ## 1. Introdução e Hipóteses
 
-Este relatório apresenta uma análise quantitativa da atividade de code review em repositórios populares do GitHub. O objetivo é identificar variáveis que influenciam o merge de um Pull Request (PR) e o número de revisões realizadas. A pesquisa busca compreender como fatores relacionados ao desenvolvimento colaborativo, como quantidade de comentários, tempo de resposta, tamanho das alterações e participação dos revisores, impactam o processo de aprovação de contribuições em projetos de software de grande escala. 
+Este relatório apresenta uma análise quantitativa da atividade de code review em repositórios populares do GitHub. O objetivo é investigar variáveis associadas ao desfecho de Pull Requests (MERGED/CLOSED) e ao número de revisões realizadas. Em termos analíticos, busca-se compreender como fatores de complexidade e interação colaborativa, como tamanho das mudanças, tempo de análise, descrição textual e volume de interações, se relacionam com o processo de avaliação de contribuições em projetos de software de larga escala.
 
-Além disso, o estudo pretende analisar padrões de comportamento em equipes distribuídas, avaliando de que forma a dinâmica de revisão pode contribuir para a qualidade do código, manutenção do projeto e eficiência no fluxo de desenvolvimento.
+O estudo também examina padrões de revisão em ambientes distribuídos, com foco em implicações práticas para qualidade de código, manutenção e eficiência do fluxo de desenvolvimento.
 
 ### Hipóteses Iniciais
 1. **Tamanho do PR:** PRs menores têm maior probabilidade de serem aceitos (merged) e requerem menos revisões.
@@ -38,7 +38,7 @@ Os dados foram coletados utilizando a API GraphQL do GitHub. O recorte final con
 | **Interações** | Soma do número de participantes e comentários totais. |
 
 ### Testes Estatísticos
-- **Mann-Whitney U:** Utilizado para comparar as distribuições entre PRs Merged e Closed, pois os dados não seguem uma distribuição normal.
+- **Mann-Whitney U:** Utilizado para comparar as distribuições entre PRs MERGED e CLOSED, pois os dados não seguem uma distribuição normal.
 - **Correlação de Spearman:** Utilizada para medir a força da relação entre as métricas e o número de revisões.
 
 ---
@@ -49,7 +49,7 @@ Os dados foram coletados utilizando a API GraphQL do GitHub. O recorte final con
 
 | Questão de Pesquisa | Métrica | Mediana Merged | Mediana Closed | p-value (MWU) | Interpretação
 |---------------------|---------|----------------|----------------|---------------|
-| **RQ 01: Tamanho** | Linhas | 39,00 | 47,00 | < 0.0001 | PRs merged tendem a ser menores que PRs closed, com diferença significativa.
+| **RQ 01: Tamanho** | Linhas | 39,00 | 47,00 | < 0.0001 | PRs MERGED tendem a ser menores que PRs CLOSED, com diferença significativa.
 | **RQ 02: Tempo** | Horas | 28,35 | 233,82 | < 0.0001 | PRs closed permanecem abertos por muito mais tempo, com diferença significativa.
 | **RQ 03: Descrição**| Caracteres| 327,00 | 648,00 | < 0.0001 | PRs closed tendem a ter descrições mais longas na mediana.
 | **RQ 04: Interações**| Total | 5,00 | 6,00 | < 0.0001 | PRs closed apresentam mais interações na mediana.
@@ -69,20 +69,25 @@ Os dados foram coletados utilizando a API GraphQL do GitHub. O recorte final con
 
 ### Análise dos Resultados vs. Hipóteses
 
-1.  **RQ 01 & RQ 02 (Tamanho e Tempo):** PRs merged tendem a ser menores e com menor duração que PRs closed, com diferença estatística clara.
-2.  **RQ 03 & RQ 04 (Descrição e Interações):** Na base atual, PRs closed apresentam medianas maiores de descrição e interações.
-3.  **RQ 05-RQ08 (Revisões):** Todas as variáveis analisadas apresentam correlação positiva e significativa com o número de revisões, com maior intensidade para interações e tamanho.
-4.  **Magnitude dos efeitos:** apesar da significância estatística elevada (N grande), os coeficientes de correlação variam de fracos a moderados, sem evidência de relação forte.
+1.  **RQ 01 & RQ 02 (Tamanho e Tempo):** PRs MERGED tendem a ser menores e apresentam menor duração que PRs CLOSED, com diferença estatística robusta.
+2.  **RQ 03 & RQ 04 (Descrição e Interações):** PRs CLOSED apresentam medianas mais elevadas para descrição e interações totais.
+3.  **RQ 05-RQ08 (Revisões):** Todas as variáveis analisadas se associam positivamente ao número de revisões, com maior intensidade para interações e tamanho.
+4.  **Magnitude dos efeitos:** apesar da significância estatística elevada (N grande), os coeficientes observados permanecem na faixa fraca a moderada, sem evidência de efeito forte.
 
 ---
 
 ## 5. Conclusão
 
-A atividade de code review no GitHub, na base final coletada, mostra diferenças consistentes entre PRs merged e closed em todas as dimensões analisadas (tamanho, tempo, descrição e interações). Em especial, PRs merged tendem a ser menores e concluídos mais rapidamente.
+Os resultados indicam diferenças sistemáticas entre PRs MERGED e CLOSED em todas as dimensões avaliadas (tamanho, tempo, descrição e interações). De modo geral, PRs MERGED tendem a ser menores e concluídos mais rapidamente.
 
-Também foi observada associação positiva entre número de revisões e todas as variáveis estudadas, com maior intensidade para interações e tamanho do PR. Isso reforça que mudanças maiores e discussões mais intensas tendem a demandar mais ciclos de revisão.
+Observou-se, adicionalmente, associação positiva entre número de revisões e todas as variáveis analisadas, com maior intensidade para interações e tamanho do PR. Esse padrão é compatível com a interpretação de que mudanças mais extensas e discussões mais ativas demandam mais ciclos de revisão.
 
-Como o volume amostral é muito alto, recomenda-se interpretar significância estatística junto com tamanho de efeito. Os achados são consistentes para orientar práticas de engenharia, como reduzir escopo de PRs e favorecer revisões incrementais.
+Considerando o tamanho amostral elevado, a interpretação dos resultados deve combinar significância estatística e magnitude de efeito. Ainda assim, os achados oferecem evidências úteis para práticas de engenharia, como decomposição de mudanças em PRs menores e incentivo a revisões incrementais.
+
+## 6. Limitações
+
+1. O recorte final inclui 200 repositórios na lista consolidada; no entanto, 199 possuem dados válidos no dataset final de PRs.
+2. As associações identificadas são de natureza observacional e não devem ser interpretadas como causalidade.
 
 ---
 

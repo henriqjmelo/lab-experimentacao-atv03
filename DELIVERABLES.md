@@ -74,7 +74,8 @@ lab-experimentacao-atv03/
 - [x] **Visualizações**
   - ✅ 8 imagens individuais, uma por RQ (RQ01-RQ08)
   - ✅ Arquivos em `docs/rq01_...png` até `docs/rq08_...png`
-  - Escala logarítmica/symlog para melhor visualização
+  - ✅ RQ01-RQ04 em barras e RQ05-RQ08 em scatter
+  - Escala logarítmica/symlog conforme variável
 
 - [x] **Documentação metodológica** (`ANALISE_METODOLOGIA.md`)
   - Justificativa dos testes estatísticos
@@ -127,10 +128,10 @@ lab-experimentacao-atv03/
 4. `docs/github_prs_data.csv` - Dataset completo
 5. `docs/repositorios_selecionados.csv` - Lista de repositórios
 6. `docs/repositorios_selecionados.json` - Dados em JSON
-7. `docs/rq01_tamanho_por_status.png` - Visualização da RQ01
-8. `docs/rq02_tempo_por_status.png` - Visualização da RQ02
-9. `docs/rq03_descricao_por_status.png` - Visualização da RQ03
-10. `docs/rq04_interacoes_por_status.png` - Visualização da RQ04
+7. `docs/rq01_bar_tamanho_por_status.png` - Visualização da RQ01
+8. `docs/rq02_bar_tempo_por_status.png` - Visualização da RQ02
+9. `docs/rq03_bar_descricao_por_status.png` - Visualização da RQ03
+10. `docs/rq04_bar_interacoes_por_status.png` - Visualização da RQ04
 11. `docs/rq05_tamanho_vs_revisoes.png` - Visualização da RQ05
 12. `docs/rq06_tempo_vs_revisoes.png` - Visualização da RQ06
 13. `docs/rq07_descricao_vs_revisoes.png` - Visualização da RQ07

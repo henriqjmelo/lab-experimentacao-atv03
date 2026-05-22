@@ -2,7 +2,7 @@
 
 ## Resumo Executivo
 
-Análise completa de 631.440 Pull Requests de 200 repositórios no recorte final (199 com dados válidos de PR), investigando a influência de variáveis no merge de PRs e no número de revisões.
+Este documento apresenta a análise de 631.440 Pull Requests (PRs) provenientes de um recorte final de 200 repositórios, dos quais 199 possuem dados válidos no dataset de PRs. O objetivo é examinar, de forma quantitativa, a associação entre características dos PRs, o desfecho do processo de revisão (MERGED/CLOSED) e o número de revisões realizadas.
 
 ---
 
@@ -34,9 +34,9 @@ Análise completa de 631.440 Pull Requests de 200 repositórios no recorte final
 
 ### 3. Testes Estatísticos Utilizados
 
-#### A. Mann-Whitney U Test (Questões RQ01-RQ04)
+#### A. Teste U de Mann-Whitney (Questões RQ01-RQ04)
 
-**Quando usar:** Comparação de duas populações independentes com distribuição não-normal
+**Aplicação:** Comparação entre dois grupos independentes sob distribuição não normal.
 
 **Hipóteses (RQ01-RQ04):**
 - **H₀ (nula):** Não há diferença nas distribuições entre PRs MERGED e CLOSED
@@ -53,7 +53,7 @@ Análise completa de 631.440 Pull Requests de 200 repositórios no recorte final
 
 #### B. Correlação de Spearman (Questões RQ05-RQ08)
 
-**Quando usar:** Medir associação monotônica entre duas variáveis contínuas
+**Aplicação:** Medir associação monotônica entre variáveis contínuas.
 
 **Fórmula:**
 $$\rho = 1 - \frac{6\sum d_i^2}{n(n^2-1)}$$
@@ -157,17 +157,17 @@ Correlação Spearman:
 
 ## Visualizações Geradas
 
-### 1. docs/rq01_tamanho_por_status.png
-RQ01: Tamanho do PR (linhas) por status (boxplot com escala log).
+### 1. docs/rq01_bar_tamanho_por_status.png
+RQ01: Mediana de tamanho do PR (linhas) por status (gráfico de barras com escala log).
 
-### 2. docs/rq02_tempo_por_status.png
-RQ02: Tempo de análise (horas) por status (boxplot com escala log).
+### 2. docs/rq02_bar_tempo_por_status.png
+RQ02: Mediana de tempo de análise (horas) por status (gráfico de barras com escala log).
 
-### 3. docs/rq03_descricao_por_status.png
-RQ03: Tamanho da descrição por status (boxplot com escala symlog).
+### 3. docs/rq03_bar_descricao_por_status.png
+RQ03: Mediana do tamanho da descrição por status (gráfico de barras com escala symlog).
 
-### 4. docs/rq04_interacoes_por_status.png
-RQ04: Interações totais por status (boxplot com escala log).
+### 4. docs/rq04_bar_interacoes_por_status.png
+RQ04: Mediana de interações totais por status (gráfico de barras com escala log).
 
 ### 5. docs/rq05_tamanho_vs_revisoes.png
 RQ05: Tamanho (linhas) vs número de revisões (scatter com eixo x em log).
@@ -176,7 +176,7 @@ RQ05: Tamanho (linhas) vs número de revisões (scatter com eixo x em log).
 RQ06: Tempo de análise vs número de revisões (scatter com eixo x em log).
 
 ### 7. docs/rq07_descricao_vs_revisoes.png
-RQ07: Tamanho da descrição vs número de revisões (scatter com eixo x em symlog).
+RQ07: Tamanho da descrição vs número de revisões (scatter com eixo x em log).
 
 ### 8. docs/rq08_interacoes_vs_revisoes.png
 RQ08: Interações totais vs número de revisões (scatter com eixo x em log).
@@ -185,11 +185,16 @@ RQ08: Interações totais vs número de revisões (scatter com eixo x em log).
 
 ## Conclusões
 
-1. **As quatro dimensões diferenciam MERGED vs CLOSED** com significância estatística na base atual.
-2. **PRs MERGED tendem a ser menores e mais rápidos** que PRs CLOSED.
-3. **PRs CLOSED tendem a ter descrições e interações maiores** na mediana.
-4. **Número de revisões cresce com tamanho, tempo e interações** (todas correlações positivas significativas).
-5. **Descrição também correlaciona com revisões**, mas com efeito fraco.
+1. As quatro dimensões analisadas apresentam diferença estatisticamente significativa entre PRs MERGED e CLOSED.
+2. Em termos de tendência central, PRs MERGED são, em geral, menores e mais rápidos que PRs CLOSED.
+3. PRs CLOSED apresentam medianas superiores para tamanho de descrição e interações totais.
+4. O número de revisões está positivamente associado a tamanho, tempo e interações, com magnitudes entre fraca e moderada.
+5. A variável descrição também apresenta associação positiva com revisões, porém com efeito de menor intensidade.
+
+## Limitações
+
+1. O recorte final contém 200 repositórios, mas 1 deles não possui linhas no dataset final de PRs, totalizando 199 repositórios com dados válidos para análise efetiva.
+2. Devido ao grande tamanho amostral, recomenda-se interpretar significância estatística em conjunto com magnitude de efeito.
 
 ---
 
@@ -198,10 +203,10 @@ RQ08: Interações totais vs número de revisões (scatter com eixo x em log).
 - `github_prs_data.csv` - Dataset completo (631.440 registros)
 - `repositorios_selecionados.csv` - Lista de 200 repositórios
 - `repositorios_selecionados.json` - Lista em JSON
-- `docs/rq01_tamanho_por_status.png` - Visualização da RQ01
-- `docs/rq02_tempo_por_status.png` - Visualização da RQ02
-- `docs/rq03_descricao_por_status.png` - Visualização da RQ03
-- `docs/rq04_interacoes_por_status.png` - Visualização da RQ04
+- `docs/rq01_bar_tamanho_por_status.png` - Visualização da RQ01
+- `docs/rq02_bar_tempo_por_status.png` - Visualização da RQ02
+- `docs/rq03_bar_descricao_por_status.png` - Visualização da RQ03
+- `docs/rq04_bar_interacoes_por_status.png` - Visualização da RQ04
 - `docs/rq05_tamanho_vs_revisoes.png` - Visualização da RQ05
 - `docs/rq06_tempo_vs_revisoes.png` - Visualização da RQ06
 - `docs/rq07_descricao_vs_revisoes.png` - Visualização da RQ07
